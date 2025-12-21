@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 🔥 NEW STARRY NIGHT + FIREWORKS BACKGROUND */
+/* 🔥 FIXED STARRY NIGHT - NO ROTATION */
 body {
   background: 
     /* Fireworks bursts */
@@ -12,44 +12,24 @@ body {
     radial-gradient(ellipse 60% 40% at 50% 80%, #96ceb4 0%, transparent 50%),
     
     /* Starry night base */
-    linear-gradient(135deg, #0c0c1a 0%, #1a0033 50%, #0f0f23 100%),
-    
-    /* Shooting stars */
-    radial-gradient(2px 2px at 20px 30px, #eee 100%, transparent 0),
-    radial-gradient(2px 2px at 90vw 30vh, #fff 100%, transparent 0),
-    radial-gradient(1px 1px at 40vw 80vh, #fff 100%, transparent 0),
-    radial-gradient(1px 1px at 70vw 20vh, #ddd 100%, transparent 0),
-    radial-gradient(1px 1px at 10vw 50vh, #fff 100%, transparent 0),
-    radial-gradient(1px 1px at 80vw 90vh, #eee 100%, transparent 0);
+    linear-gradient(135deg, #0c0c1a 0%, #1a0033 50%, #0f0f23 100%);
   
-  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 
-                   100% 100%, 50px 50px, 50px 50px, 50px 50px, 
-                   50px 50px, 50px 50px, 50px 50px, 50px 50px;
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
   
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
-                     repeat, repeat, repeat, repeat, repeat, repeat, repeat;
-  
-  animation: starryNightShift 20s ease-in-out infinite;
+  /* FIXED: Sirf gentle shift, NO ROTATE */
+  animation: gentleShift 25s ease-in-out infinite;
 }
 
-@keyframes starryNightShift {
+@keyframes gentleShift {
   0%, 100% { 
-    transform: translateX(0) translateY(0) rotate(0deg);
-    background-position: 0% 0%, 0% 95%, 0% 30%, 0% 80%, 50% 10%, 
-                         20px 30px, 90vw 30vh, 40vw 80vh, 70vw 20vh, 
-                         10vw 50vh, 80vw 90vh, 30vw 40vh;
+    background-position: 0% 0%, 0% 95%, 0% 30%, 0% 80%, 50% 10%;
   }
   33% { 
-    transform: translateX(-10px) translateY(-10px) rotate(120deg);
-    background-position: 0% 95%, 0% 30%, 0% 80%, 50% 10%, 0% 0%, 
-                         90vw 30vh, 40vw 80vh, 70vw 20vh, 10vw 50vh, 
-                         80vw 90vh, 30vw 40vh, 20px 30px;
+    background-position: 5% 95%, 0% 30%, 0% 80%, 50% 10%, 0% 0%;
   }
   66% { 
-    transform: translateX(10px) translateY(10px) rotate(240deg);
-    background-position: 0% 30%, 0% 80%, 50% 10%, 0% 0%, 0% 95%, 
-                         40vw 80vh, 70vw 20vh, 10vw 50vh, 80vw 90vh, 
-                         30vw 40vh, 20px 30px, 90vw 30vh;
+    background-position: 0% 30%, 0% 80%, 50% 10%, 0% 0%, 0% 95%;
   }
 }
 
@@ -86,7 +66,7 @@ button { cursor: pointer; }
 }
 @keyframes spinning82341 { to { transform: rotate(360deg); } }
 
-/* CAKE - COMPLETE */
+/* CAKE CSS (COMPLETE - NO CHANGE) */
 @keyframes flicker {
   0% { transform: skewX(5deg); box-shadow: 0 0 10px rgba(255,165,0,0.2), 0 0 20px rgba(255,165,0,0.2), 0 0 60px rgba(255,165,0,0.2), 0 0 80px rgba(255,165,0,0.2); }
   25% { transform: skewX(-5deg); box-shadow: 0 0 10px rgba(255,165,0,0.5), 0 0 20px rgba(255,165,0,0.5), 0 0 60px rgba(255,165,0,0.5), 0 0 80px rgba(255,165,0,0.5); }
