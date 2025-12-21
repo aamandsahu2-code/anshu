@@ -27,8 +27,8 @@ export default function PhotosScreen({ onNext }) {
               className="group relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-pointer"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="w-full h-48 md:h-64 bg-gradient-to-br from-pink-400/20 to-purple-400/20 flex items-center justify-center rounded-2xl border-4 border-white/20 group-hover:border-white/40 transition-all duration-300">
-                <span className="text-2xl font-bold text-white/60">Photo {i}</span>
+              <div className="w-full h-48 md:h-64 photo-placeholder flex items-center justify-center rounded-2xl border-4 border-white/20 group-hover:border-white/40 transition-all duration-300 bg-gradient-to-br from-pink-400/30 to-purple-400/30">
+                <span className="text-2xl font-bold text-white/80">Photo {i}</span>
               </div>
             </motion.div>
           ))}
