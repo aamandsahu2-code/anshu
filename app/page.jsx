@@ -1,54 +1,52 @@
-"use client"
+import { Kalam } from "next/font/google"
+import "./globals.css"
 
-import { useState } from "react"
-import { AnimatePresence, motion } from "framer-motion"
-import LoaderScreen from "@/components/screens/LoaderScreen"
-import IntroScreen from "@/components/screens/IntroScreen"
-import CakeScreen from "@/components/screens/CakeScreen"
-import PhotosScreen from "@/components/screens/PhotosScreen"
-import MessageScreen from "@/components/screens/MessageScreen"
+const kalam = Kalam({ subsets: ["latin"], weight: ["300", "400", "700"] })
 
-export default function HomePage() {
-  const [currentScreen, setCurrentScreen] = useState(0)
+export const metadata = {
+  title: "Happy Birthday Princess!",
+  description: "Princess Birthday Surprise 🎂",
+}
 
-  const screens = [
-    <LoaderScreen key="loader" onDone={() => setCurrentScreen(1)} />,
-    <IntroScreen key="intro" onNext={() => setCurrentScreen(2)} />,
-    <CakeScreen key="cake" onNext={() => setCurrentScreen(3)} />,
-    <PhotosScreen key="photos" onNext={() => setCurrentScreen(4)} />,
-    <MessageScreen key="message" onNext={() => setCurrentScreen(5)} />,
-  ]
-
+export default function RootLayout({ children }) {
   return (
-    <main className="min-h-screen overflow-hidden relative">
-      {/* NEW STARRY NIGHT BACKGROUND - CSS handles everything */}
-      
-      {/* Main content */}
-      <div className="relative z-10 flex min-h-screen items-center justify-center p-4 md:p-6">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentScreen}
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1, transition: { duration: 1 } }}
-            exit={{ opacity: 0, transition: { duration: 0.8 } }}
-            className={`w-full ${
-              currentScreen === 3 ? "max-w-7xl" : "max-w-3xl md:max-w-4xl"
-            }`}
-          >
-            {screens[currentScreen]}
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      {/* Watermark */}
-      <motion.div
-        initial={{ x: 100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="fixed bottom-4 right-4 text-sm text-white/40 pointer-events-none z-50 font-light"
-      >
-        @kd
-      </motion.div>
-    </main>
+    <html lang="en" className="scroll-smooth">
+      <body className={`${kalam.className} antialiased select-none relative overflow-hidden`}>
+        {/* ⭐ STARS */}
+        <div className="star-glow" style={{ top: '10%', left: '15%', width: '3px', height: '3px', animationDelay: '0s' }}></div>
+        <div className="star-glow" style={{ top: '20%', left: '80%', width: '4px', height: '4px', animationDelay: '1s' }}></div>
+        <div className="star-glow" style={{ top: '60%', left: '30%', width: '2px', height: '2px', animationDelay: '2s' }}></div>
+        <div className="star-glow" style={{ top: '80%', left: '90%', width: '3px', height: '3px', animationDelay: '3s' }}></div>
+        
+        {/* 🦋 BUTTERFLIES */}
+        <div className="butterfly butterfly1">
+          <div className="butterfly-wing top-left"></div>
+          <div className="butterfly-wing top-right"></div>
+          <div className="butterfly-wing bottom-left"></div>
+          <div className="butterfly-wing bottom-right"></div>
+        </div>
+        <div className="butterfly butterfly2">
+          <div className="butterfly-wing top-left"></div>
+          <div className="butterfly-wing top-right"></div>
+          <div className="butterfly-wing bottom-left"></div>
+          <div className="butterfly-wing bottom-right"></div>
+        </div>
+        <div className="butterfly butterfly3">
+          <div className="butterfly-wing top-left"></div>
+          <div className="butterfly-wing top-right"></div>
+          <div className="butterfly-wing bottom-left"></div>
+          <div className="butterfly-wing bottom-right"></div>
+        </div>
+        
+        {/* 💖 HEARTS */}
+        <div className="heart-float heart1"></div>
+        <div className="heart-float heart2"></div>
+        <div className="heart-float heart3"></div>
+        <div className="heart-float heart4"></div>
+        <div className="heart-float heart5"></div>
+        
+        {children}
+      </body>
+    </html>
   )
 }
