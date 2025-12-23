@@ -107,7 +107,7 @@ export default function CakeScreen({ onNext }) {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
         >
-          Happy Birthday, Princess Anshika!
+          Happy Birthday, Princess!
         </motion.div>
       )}
 
